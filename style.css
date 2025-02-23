@@ -36,4 +36,19 @@ footer {
     padding: 10px;
     margin-top: 20px;
 }
+/* Mode sombre */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* Header et footer en mode sombre */
+.dark-mode header, .dark-mode footer {
+    background-color: #000;
+}
+
+/* Liens en mode sombre */
+.dark-mode a {
+    color: #1e90ff; /* Bleu clair */
+}
 
