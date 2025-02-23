@@ -38,17 +38,39 @@ footer {
 }
 /* Mode sombre */
 .dark-mode {
-    background-color: #1a1a1a;
-    color: white;
+    background-color: #121212;
+    color: #f1f1f1;
 }
 
-/* Header et footer en mode sombre */
+/* Header et footer */
 .dark-mode header, .dark-mode footer {
-    background-color: #000;
+    background-color: #1e1e1e;
 }
 
-/* Liens en mode sombre */
+/* Liens */
 .dark-mode a {
-    color: #1e90ff; /* Bleu clair */
+    color: #4da6ff; /* Bleu clair */
+}
+
+/* Bouton dark mode */
+#dark-mode-toggle {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#dark-mode-toggle:hover {
+    background: #555;
+}
+
+/* Adapter les sections */
+.dark-mode section {
+    background: #1e1e1e;
+    color: #f1f1f1;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
 
