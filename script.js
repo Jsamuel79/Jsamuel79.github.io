@@ -31,3 +31,25 @@ darkModeToggle.addEventListener("click", () => {
     }
 });
 
+// Sélectionner toutes les sections
+const sections = document.querySelectorAll("section");
+
+function checkVisibility() {
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        // Si la section est visible dans la fenêtre, ajouter la classe 'visible'
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+            section.classList.add("visible");
+        } else {
+            section.classList.remove("visible");
+        }
+    });
+}
+
+// Écouter le scroll et vérifier la visibilité
+window.addEventListener("scroll", checkVisibility);
+
+// Initialiser pour les sections déjà visibles au premier chargement
+checkVisibility();
+
+
