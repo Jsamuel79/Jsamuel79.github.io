@@ -18,15 +18,18 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
+
 header {
     background: #333;
     color: white;
     padding: 20px;
 }
+
 nav ul {
     list-style: none;
     padding: 0;
 }
+
 nav ul li {
     display: inline;
     margin: 0 15px;
@@ -36,12 +39,11 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease, transform 0.2s ease;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
     color: #4da6ff;  /* Couleur au survol */
-    transform: scale(1.1);  /* Légère mise en avant du lien */
 }
 
 section {
@@ -52,6 +54,7 @@ section {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
+
 footer {
     background: #333;
     color: white;
@@ -76,7 +79,6 @@ html {
 
 #dark-mode-toggle:hover {
     background: #555;
-    transform: scale(1.05); /* Légère mise en avant */
 }
 
 .dark-mode {
@@ -92,9 +94,6 @@ html {
 /* Liens */
 .dark-mode a {
     color: #4da6ff; /* Bleu clair */
-}
-.dark-mode a {
-    color: #4da6ff; /* Bleu clair */
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -103,38 +102,15 @@ html {
     color: #80c7ff; /* Couleur plus claire au survol */
     text-decoration: underline;
 }
+
 .projet {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .projet:hover {
-    transform: scale(1.05); /* Légèrement zoomer sur le projet */
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Ajouter une ombre */
     background-color: #f0f0f0; /* Légère couleur de fond au survol */
 }
-
-/* Bouton dark mode */
-#dark-mode-toggle {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-#dark-mode-toggle:hover {
-    background: #555;
-}
-
-.dark-mode section {
-    background: #1e1e1e;
-    color: #f1f1f1;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
 
 /* Adapter les sections */
 .dark-mode section {
@@ -142,6 +118,7 @@ html {
     color: #f1f1f1;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
+
 /* Initialement, les sections sont invisibles */
 section {
     opacity: 0;
@@ -153,14 +130,5 @@ section {
 section.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-.projet {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.projet:hover {
-    transform: scale(1.05); /* Légèrement zoomer sur le projet */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Ajouter une ombre */
 }
 
