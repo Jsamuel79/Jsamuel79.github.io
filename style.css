@@ -103,15 +103,6 @@ html {
     text-decoration: underline;
 }
 
-.projet {
-    transition: box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-.projet:hover {
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Ajouter une ombre */
-    background-color: #f0f0f0; /* Légère couleur de fond au survol */
-}
-
 /* Adapter les sections */
 .dark-mode section {
     background: #1e1e1e;
