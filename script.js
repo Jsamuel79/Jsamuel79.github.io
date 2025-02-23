@@ -52,4 +52,15 @@ window.addEventListener("scroll", checkVisibility);
 // Initialiser pour les sections déjà visibles au premier chargement
 checkVisibility();
 
+let isScrolling = false;
+
+window.addEventListener("scroll", () => {
+    if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+            checkVisibility();
+            isScrolling = false;
+        });
+        isScrolling = true;
+    }
+});
 
