@@ -98,11 +98,6 @@ html {
     transition: color 0.3s ease;
 }
 
-.dark-mode a:hover {
-    color: #80c7ff; /* Couleur plus claire au survol */
-    text-decoration: underline;
-}
-
 /* Adapter les sections */
 .dark-mode section {
     background: #1e1e1e;
