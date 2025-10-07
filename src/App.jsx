@@ -2,15 +2,17 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Header from './components/Header.jsx'
-import Contact from './components/Contact.jsx'
-import HeroSection from './components/HeroSection.jsx'
+import Header from './components/js/Header.jsx'
+import Contact from './components/js/Contact.jsx'
+import HeroSection from './components/js/HeroSection.jsx'
+import About from './components/js/About.jsx'
 
 function App() {
   return (
     <div>
       <Header />
       <HeroSection />
+      <About />
       <Contact />
     </div>
   )
