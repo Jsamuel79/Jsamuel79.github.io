@@ -1,21 +1,98 @@
+/* === Header global === */
 header {
+  position: relative;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+  color: #ccc;
+  overflow: hidden;
 }
 
-header h1 {
-  font-size: 3rem;
+/* === Navigation === */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.4rem;
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
 
-header p {
-  font-size: 1.2rem;
+.logo:hover {
+  color: #a464ff; /* violet subtil */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #a464ff;
+  text-shadow: 0 0 8px rgba(164,100,255,0.6);
+}
+
+/* === Header content === */
+.header-content {
   text-align: center;
-  color: #555;
+  padding: 10rem 2rem 0;
+  max-width: 800px;
+}
+
+.header-content h2 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+  animation: fadeIn 1.5s ease-out;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  color: #bbb;
+  animation: fadeIn 2s ease-out;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .header-content h2 {
+    font-size: 2.2rem;
+  }
 }
 
