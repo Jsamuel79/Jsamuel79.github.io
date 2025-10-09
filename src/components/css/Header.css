@@ -93,22 +93,45 @@
 .backdrop.show{ opacity:1; visibility:visible; }
 
 .drawer{
-  position:fixed; top:0; right:0; height:100vh;
-  width:min(78vw,360px);
+  position:fixed;
+  inset:0; /* top:0; right:0; bottom:0; left:0 → plein écran */
+  width:100%; /* 100% de la largeur viewport */
+  height:100vh; /* 100% de la hauteur viewport */
+  z-index:999; /* au-dessus du backdrop (qui sera à 998) */
+
   background:#0e0e10;
+  overflow: auto;         /* scrolle si le contenu est long */
+
   border-left:1px solid rgba(255,255,255,.08);
   transform:translateX(100%);
   transition:transform .28s ease;
-  z-index:999;
   display:flex; flex-direction:column;
   padding:14px 16px;
 }
 .drawer.open{ transform:translateX(0); }
-.drawer-header{ display:flex; align-items:center; justify-content:space-between; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,.06);}
+.drawer-header{ display:flex; align-items:center; justify-content:space-between; padding-bottom:10px;}
 .drawer-logo{ height:42px; width:auto; }
 .drawer-close{ background:transparent; border:0; color:#ddd; font-size:28px; line-height:1; cursor:pointer; }
-.drawer-links{ list-style:none; margin:12px 0 0; padding:0; display:flex; flex-direction:column; gap:12px;}
-.drawer-links a{ color:#ddd; text-decoration:none; font-size:1.1rem; padding:10px 6px; border-radius:8px;}
+
+.drawer-links{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;      /* ⬅️ liens alignés à gauche */
+  text-align: left;             /* ⬅️ texte aligné à gauche */
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0 16px;              /* ⬅️ léger retrait du bord gauche */
+  gap: 10px;
+}
+.drawer-links a{
+  display: block;
+  width: 100%;                  /* ⬅️ occupe toute la largeur dispo */
+  padding: 12px 6px;            /* ⬅️ zone d’appui confortable */
+  text-decoration: none;
+  color: #ddd;
+  border-radius: 8px;
+}
+
 .drawer-links a:hover{ background:rgba(125,42,232,.12); color:#fff; }
 
 /* HEADER CONTENT */

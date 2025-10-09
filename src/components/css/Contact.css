@@ -1,5 +1,11 @@
 .contact-section {
-  background: linear-gradient(180deg, #000 0%, #111 100%);
+  background: linear-gradient(
+  180deg,           /* vertical haut -> bas */
+  #000 0%,          /* noir pile en haut (jonction invisible avec About) */
+  #0B0B0F 35%,      /* noir très sombre (léger relief) */
+  #111 60%,         /* un poil plus clair au centre */
+  #000 100%         /* on revient à noir en bas */
+  );
   color: #ccc;
   text-align: center;
   padding: 6rem 2rem;
