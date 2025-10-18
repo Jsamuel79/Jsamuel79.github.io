@@ -19,7 +19,7 @@ function Header() {
   }, [])
 
   return (
-    <header id="acceuil">
+    <header id="accueil">
       <nav className="navbar">
         <div className="nav-inner">
           <a href="/" className="logo" aria-label="TheSleeperWalkerCode — Accueil">
@@ -47,7 +47,7 @@ function Header() {
 
           {/* Liens desktop */}
           <ul className="nav-links">
-            <li><a href="#acceuil">Acceuil</a></li>
+            <li><a href="#accueil">Accueil</a></li>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#competences">Compétences</a></li>
             <li><a href="#services">Services</a></li>
