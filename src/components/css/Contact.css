@@ -1,15 +1,14 @@
 .contact-section {
-  background: linear-gradient(
-  180deg,           /* vertical haut -> bas */
-  #000 0%,          /* noir pile en haut (jonction invisible avec About) */
-  #0B0B0F 35%,      /* noir très sombre (léger relief) */
-  #111 60%,         /* un poil plus clair au centre */
-  #000 100%         /* on revient à noir en bas */
-  );
+  background: #000; /* fond neutre et premium */
   color: #ccc;
   text-align: center;
   padding: 6rem 2rem;
+
+  border-top: 1px solid rgba(164,100,255,.15);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  box-shadow: inset 0 40px 80px rgba(164,100,255,.04);
 }
+
 
 .contact-section h2 {
   color: #a464ff;

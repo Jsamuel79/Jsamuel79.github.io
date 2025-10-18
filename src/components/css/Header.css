@@ -7,10 +7,10 @@
 }
 
 
-/* Ajoute ça quelque part dans Header.css */
-header {
-  /* décale tout le contenu sous la navbar */
-  padding-top: calc(var(--nav-h) + 20px);
+header{
+  padding-top: calc(var(--nav-h) + 20px); /* déjà présent */
+  background: #000;                        /* fond uni derrière le nom */
+  border-bottom: 1px solid rgba(164,100,255,.20); /* ⬅︎ trait violet clair visible */
 }
 
 /* quand tu cliques sur les liens #ancres, le scroll s'arrête sous la navbar */
@@ -22,17 +22,19 @@ header {
 
 /* NAVBAR */
 .navbar{
-  position: fixed;
-  top: 0; left: 0; right: 0;
+  position: fixed; top:0; left:0; right:0;
   height: var(--nav-h);
-  display: flex;
-  align-items: center;
-  padding: 0 var(--pad-x);
+  display:flex; align-items:center;
+  padding:0 var(--pad-x);
   background: rgba(0,0,0,.6);
   backdrop-filter: blur(10px);
-  z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  z-index:1000;
+
+  /* séparateur + lueur très légère pour un raccord propre */
+  border-bottom: 1px solid rgba(164,100,255,.20);
+  box-shadow: 0 6px 26px rgba(164,100,255,.08);
 }
+
 
 .nav-inner{
   width:100%;
@@ -149,13 +151,36 @@ header {
 .drawer-links a:hover{ background:rgba(125,42,232,.12); color:#fff; }
 
 /* HEADER CONTENT */
+/* HEADER CONTENT */
 .header-content{
-  text-align:center;
-  padding:0;
-  width:100%;
+  width: 100%;
+  min-height: 42vh;                 /* + d’espace visible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;          /* centre vertical */
+  text-align: center;
+  gap: .75rem;
+  padding: 2.5rem 1rem;             /* respiration horizontale */
 }
-.header-content h2{ font-size:3rem; color:#fff; margin-bottom:1rem; text-shadow:0 0 10px rgba(255,255,255,.2); animation:fadeIn 1.5s ease-out;}
-.header-content p{ font-size:1.2rem; color:#bbb; animation:fadeIn 2s ease-out;}
+
+.header-content h2{
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  color: #fff;
+  letter-spacing: .3px;
+  text-shadow: 0 0 10px rgba(255,255,255,.2);
+  animation: fadeIn 1.2s ease-out;
+}
+
+.header-content p{
+  max-width: 900px;                 /* ligne de texte bien contenue */
+  margin: 0 auto;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: #bbb;
+  animation: fadeIn 1.6s ease-out;
+}
+
 
 /* ANIMS */
 @keyframes fadeIn{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
