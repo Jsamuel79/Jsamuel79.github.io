@@ -6,6 +6,20 @@
   --violet-glow: rgba(164,100,255,0.6);
 }
 
+
+/* Ajoute ça quelque part dans Header.css */
+header {
+  /* décale tout le contenu sous la navbar */
+  padding-top: calc(var(--nav-h) + 20px);
+}
+
+/* quand tu cliques sur les liens #ancres, le scroll s'arrête sous la navbar */
+[id] {
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+}
+
+
+
 /* NAVBAR */
 .navbar{
   position: fixed;
@@ -137,8 +151,8 @@
 /* HEADER CONTENT */
 .header-content{
   text-align:center;
-  padding: calc(var(--nav-h) + 56px) 2rem 0;
-  max-width:800px;
+  padding:0;
+  width:100%;
 }
 .header-content h2{ font-size:3rem; color:#fff; margin-bottom:1rem; text-shadow:0 0 10px rgba(255,255,255,.2); animation:fadeIn 1.5s ease-out;}
 .header-content p{ font-size:1.2rem; color:#bbb; animation:fadeIn 2s ease-out;}

@@ -6,6 +6,7 @@ import Header from './components/js/Header.jsx'
 import Contact from './components/js/Contact.jsx'
 import HeroSection from './components/js/HeroSection.jsx'
 import About from './components/js/About.jsx'
+import Competences from './components/js/Competences.jsx'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <HeroSection />
       <About />
+      <Competences />
       <Contact />
     </div>
   )
