@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'export', // sa remplace le dossier dist
   images: {
     unoptimized: true,
-  }
+  },
   reactCompiler: true,
 };
 
