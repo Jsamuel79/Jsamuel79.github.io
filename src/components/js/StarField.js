@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 
 // --- CONFIGURATION (MACROS) ---
-const TOTAL_STARS = 150;           // Nombre total d'étoiles au lancement
+const TOTAL_STARS = 340;           // Nombre total d'étoiles au lancement
 const CIRCLE_STARS_COUNT = 8;      // Nombre d'étoiles qui rejoignent le clic
 const CLICK_RADIUS = 70;           // Rayon du cercle autour du clic (en px)
-const STAR_MIN_SIZE = 1;           // Taille minimum (px)
-const STAR_MAX_SIZE = 4;           // Taille maximum (px)
+const STAR_MIN_SIZE = 1;           // Taille minimum (px) 1
+const STAR_MAX_SIZE = 3;           // Taille maximum (px) 3
 const ANIMATION_SPEED = "1000ms";  // Vitesse de déplacement (CSS duration)
 
 export default function StarField() {
