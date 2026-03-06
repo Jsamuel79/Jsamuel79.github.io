@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function Hero() {
   return (
     <section className="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden">
-      
+
       <StarField />
 
       <div className="relative z-10 flex flex-col items-center text-center px-4">
@@ -14,11 +14,11 @@ export default function Hero() {
         {/* CONTENEUR LOGO */}
         {/* mb-2 au lieu de mb-8 pour rapprocher le texte */}
         <div className="relative mb-2 group">
-          
+
           {/* LA LUEUR (Halo bleu) */}
           {/* On la met en absolute pour qu'elle soit DERRIÈRE l'image */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-600/20 blur-[100px] rounded-full pointer-events-none"></div>
-          
+
           {/* L'IMAGE */}
           <div className="relative w-64 h-64 md:w-96 md:h-96">
               <Image
