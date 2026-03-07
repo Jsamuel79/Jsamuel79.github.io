@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 // --- CONFIGURATION (MACROS) ---
-const TOTAL_STARS = 340;           // Nombre total d'étoiles au lancement
+const TOTAL_STARS = 600;           // Nombre total d'étoiles au lancement
 const CIRCLE_STARS_COUNT = 8;      // Nombre d'étoiles qui rejoignent le clic
 const CLICK_RADIUS = 70;           // Rayon du cercle autour du clic (en px)
 const STAR_MIN_SIZE = 1;           // Taille minimum (px) 1

@@ -3,13 +3,13 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 const SKILLS = [
-  { id: 1, name: 'Rust', x: 20, y: 30, color: '#3b82f6' },
-  { id: 2, name: 'C++', x: 35, y: 20, color: '#3b82f6' },
-  { id: 3, name: 'C', x: 50, y: 25, color: '#3b82f6' },
-  { id: 4, name: 'Next.js', x: 70, y: 50, color: '#60a5fa' },
-  { id: 5, name: 'Laravel', x: 85, y: 45, color: '#60a5fa' },
-  { id: 6, name: 'Docker', x: 40, y: 70, color: '#93c5fd' },
-  { id: 7, name: 'Linux', x: 25, y: 80, color: '#93c5fd' },
+  { id: 1, name: 'Rust', x: 20, y: 30, portalColor: '#ff4d00' },
+  { id: 2, name: 'C++', x: 35, y: 20, portalColor: '#00599C' },
+  { id: 3, name: 'C', x: 50, y: 25, portalColor: '#FFFFFF' },
+  { id: 4, name: 'Next.js', x: 70, y: 50, portalColor: '#000000' },
+  { id: 5, name: 'Laravel', x: 85, y: 45, portalColor: '#F05340' },
+  { id: 6, name: 'Docker', x: 40, y: 70, portalColor: '#2496ED' },
+  { id: 7, name: 'Linux', x: 25, y: 80, portalColor: '#FCC624' }, // Jaune Linux (Tux)
 ];
 
 const CONNECTIONS = [
@@ -25,20 +25,22 @@ export default function Constellation() {
 
   const handleLaunch = (skill) => {
     setSelectedId(skill.id)
-
-    // On attend que l'étoile ait fini de recouvrir l'écran (1s)
     setTimeout(() => {
       router.push(`/skills/${skill.name.toLowerCase().replace('.', '')}`)
-    }, 800)
+    }, 900) // On passe à la page juste avant la fin de l'anim (1500ms)
   }
 
   return (
     <div className="relative w-full h-[60vh] max-w-5xl mx-auto">
-      {/* SVG : On le cache si une étoile est sélectionnée */}
+      {/* SVG avec SÉCURITÉ ANTI-CRASH */}
       <svg className={`absolute inset-0 w-full h-full pointer-events-none transition-opacity duration-500 ${selectedId ? 'opacity-0' : 'opacity-100'}`}>
         {CONNECTIONS.map(([startId, endId], index) => {
           const start = SKILLS.find(s => s.id === startId);
           const end = SKILLS.find(s => s.id === endId);
+          
+          // Si l'ID n'est pas trouvé dans SKILLS, on n'affiche pas la ligne
+          if (!start || !end) return null;
+
           return (
             <line
               key={index}
@@ -69,21 +71,24 @@ export default function Constellation() {
               zIndex: isTarget ? 100 : 10
             }}
           >
-             {/* Le point (étoile) */}
-<div 
-  className={`
-    bg-white rounded-full transition-all
-    ${isTarget
-      ? 'fixed top-1/2 left-1/2 w-[500vmax] h-[500vmax] -translate-x-1/2 -translate-y-1/2 z-100 duration-1500 ease-in' 
-      : 'w-3 h-3 shadow-[0_0_15px_rgba(255,255,255,0.8)] group-hover:scale-150 duration-2000 ease-out'}
-  `}
-  style={{
-    transform: isTarget ? 'translate(-50%, -50%)' : '',
-    // Cette ligne est le secret pour bloquer l'animation à la fin
-    transitionFillMode: 'forwards' 
-  }}
-/>
-            {/* Le texte du skill */}
+            {/* L'étoile qui explose avec sa couleur propre */}
+            <div 
+              className={`
+                rounded-full transition-all
+                ${isTarget
+                  ? 'fixed top-1/2 left-1/2 w-[500vmax] h-[500vmax] -translate-x-1/2 -translate-y-1/2 z-[100] duration-[1500ms] ease-in' 
+                  : 'w-3 h-3 shadow-[0_0_15px_rgba(255,255,255,0.8)] group-hover:scale-150 duration-2000 ease-out'}
+              `}
+              style={{
+                backgroundColor: isTarget ? skill.portalColor : 'white',
+                // Petite lueur de la couleur du skill pour l'ambiance
+                boxShadow: !isTarget ? `0 0 15px ${skill.portalColor}88` : 'none',
+                transform: isTarget ? 'translate(-50%, -50%)' : '',
+                transitionFillMode: 'forwards' 
+              }}
+            />
+
+            {/* Texte */}
             <div className={`
               absolute top-6 left-1/2 -translate-x-1/2 transition-opacity duration-300
               ${selectedId ? 'opacity-0' : 'opacity-50 group-hover:opacity-100'}
