@@ -10,7 +10,7 @@ const STAR_MIN_SIZE = 1;           // Taille minimum (px) 1
 const STAR_MAX_SIZE = 3;           // Taille maximum (px) 3
 const ANIMATION_SPEED = "1000ms";  // Vitesse de déplacement (CSS duration)
 
-export default function StarField() {
+export default function StarField({ cameraX }) { // On recupere la cam
   const [stars, setStars] = useState([])
 
   // 1. INITIALISATION
@@ -20,7 +20,7 @@ export default function StarField() {
       generatedStars.push({
         id: i,
         top: Math.random() * 100 + '%',
-        left: Math.random() * 100 + '%',
+        left: Math.random() * 200 + '%',
         size: Math.random() * (STAR_MAX_SIZE - STAR_MIN_SIZE) + STAR_MIN_SIZE + 'px',
         opacity: Math.random() * 0.6 + 0.3,
         duration: Math.random() * 3 + 2 + 's'
@@ -32,37 +32,34 @@ export default function StarField() {
   // 2. LOGIQUE DU CLIC
   useEffect(() => {
     const handleClick = (e) => {
-      // On pioche X index au hasard
-      const randomIndices = Array.from(
-        { length: CIRCLE_STARS_COUNT }, 
-        () => Math.floor(Math.random() * stars.length)
-      )
+    const randomIndices = Array.from({ length: CIRCLE_STARS_COUNT }, () => Math.floor(Math.random() * stars.length))
+    const newStars = [...stars]
 
-      const newStars = [...stars] // Copie immuable pour React
+    randomIndices.forEach((starIndex, i) => {
+      const angle = (i * (360 / CIRCLE_STARS_COUNT) * Math.PI) / 180
 
-      randomIndices.forEach((starIndex, i) => {
-        // Angle : 360 degrés divisés par le nombre d'étoiles du cercle
-        const angle = (i * (360 / CIRCLE_STARS_COUNT) * Math.PI) / 180
+      // CALCUL:
+      // e.clientX position souris sur ecran
+      // + CameraX % la largeur de l'ecran
+      const offset = (window.innerWidth * cameraX) / 100;
+      const newLeft = e.pageX + offset + (CLICK_RADIUS * Math.cos(angle))
+      const newTop = e.pageY + (CLICK_RADIUS * Math.sin(angle))
 
-        const newLeft = e.clientX + CLICK_RADIUS * Math.cos(angle)
-        const newTop = e.clientY + CLICK_RADIUS * Math.sin(angle)
-
-        if (newStars[starIndex]) {
-          newStars[starIndex] = {
-            ...newStars[starIndex],
-            left: `${newLeft}px`,
-            top: `${newTop}px`,
-            opacity: 1 // Elles brillent plus fort quand elles se rassemblent
-          }
+      if (newStars[starIndex]) {
+        newStars[starIndex] = {
+          ...newStars[starIndex],
+          left: `${newLeft}px`,
+          top: `${newTop}px`,
+          opacity: 1
         }
-      })
-
-      setStars(newStars) // Déclenche le re-render
-    }
+      }
+    })
+    setStars(newStars)
+  }
 
     window.addEventListener('click', handleClick)
     return () => window.removeEventListener('click', handleClick) // Nettoyage
-  }, [stars])
+  }, [stars, cameraX])
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
