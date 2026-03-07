@@ -1,19 +1,20 @@
+// src/components/js/Navbar.js
 'use client'
 
-export default function Navbar({ activeSection, setActiveSection }) {
+export default function Navbar({ cameraX, setCameraX }) {
   const links = [
-    { name: 'Accueil', id: 'hero' },
-    { name: 'Compétences', id: 'skills' }
+    { name: 'Accueil', target: 0 },
+    { name: 'Compétences', target: 100 }
   ];
 
   return (
     <nav className="fixed top-8 right-12 z-50 flex gap-8">
       {links.map((link) => (
         <button
-          key={link.id}
-          onClick={() => setActiveSection(link.id)}
-          className={`text-xs tracking-[0.3em] uppercase transition-all duration-500 ${
-            activeSection === link.id ? 'text-blue-500' : 'text-white/50 hover:text-white'
+          key={link.target}
+          onClick={() => setCameraX(link.target)}
+          className={`text-[10px] tracking-[0.3em] uppercase transition-all duration-500 ${
+            cameraX === link.target ? 'text-blue-500' : 'text-white/40 hover:text-white'
           }`}
         >
           {link.name}
